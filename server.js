@@ -6,7 +6,8 @@ const uniqid = require('uniqid'); // Generates random ID number for notes
 const port =  process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true })); // Sets up data parsing
 app.use(express.json());
-app.use(express.static('public')) // Serves static files
+app.use(express.static('public')) // Serves static in public folder
+app.use(express.static('db')) // Serves static files in db folder
 
 
 app.get('/', (req, res) => { // Route to index.html
