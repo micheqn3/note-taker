@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs'); // File system module
 const db = require('./db/db.json') // Importing database
 const uniqid = require('uniqid'); // Generates random ID number for notes
-const port =  process.env.port || 3000;
+const port =  process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true })); // Sets up data parsing
 app.use(express.json());
 app.use(express.static('public')) // Serves static files
