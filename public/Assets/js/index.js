@@ -144,7 +144,7 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
-
+      delBtnEl.addEventListener('click', () => window.location.reload()); // Show updated notes after deletion
       liEl.append(delBtnEl);
     }
 
@@ -172,7 +172,7 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
-  saveNoteBtn.addEventListener('click', getAndRenderNotes); // Append to the side after every 'save' click
+  saveNoteBtn.addEventListener('click', getAndRenderNotes); // Append updated notes to the side after every 'save' click
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);

@@ -40,6 +40,30 @@ app.post('/api/notes', (req, res) => { // Handles post request for notes
         }
     })    
 })
+
+app.delete('/api/notes/:id', (req, res) => { // Handles deleting notes
+    let id = req.params.id;
+    fs.readFile('./db/db.json', 'utf-8' , (error, data) => {
+        if(error) {
+            console.log("Something went wrong.")
+        } else {
+            let parsedData = JSON.parse(data);
+            let newArray = [];
+            for (let i = 0 ; i < parsedData.length ; i++) { // If the object's id is not equal to the parameter requested, save to new array
+                if(parsedData[i].id !== id) { 
+                    newArray.push(parsedData[i]);
+                }
+            }
+            fs.writeFile('./db/db.json', JSON.stringify(newArray), (error, data) => { // Write new array to database
+                if(error) {
+                    throw error;
+                } else {
+                    console.log("Deleted item.")
+                }
+            })
+        }
+    })
+})
     
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`)
