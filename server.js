@@ -51,15 +51,14 @@ app.delete('/api/notes/:id', (req, res) => { // Handles deleting notes
                 if(parsedData[i].id === id) {
                     parsedData.splice(i, 1);
                 }
-                console.log(data);
-                fs.writeFile(__dirname + '/db' + '/db.json', JSON.stringify(parsedData), (error) => { // Write new array to database
-                    if(error) {
-                        throw error;
-                    } else {
-                        console.log("Deleted item.");
-                    }
-                })
             }
+            fs.writeFile(__dirname + '/db' + '/db.json', JSON.stringify(parsedData), (error) => { // Write new array to database
+                if(error) {
+                    throw error;
+                } else {
+                    console.log("Deleted item.");
+                }
+            })
         }
     })
 })
