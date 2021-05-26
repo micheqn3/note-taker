@@ -1,10 +1,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Note Taker
 
-This application is used to create and save notes. The application uses an Express.js back-end to store and retrieve notes in a JSON file.
-Saved notes will be retrieved from the file and appended to the side nav for the user to utilize or delete.
+The application uses an Express.js back-end to store and retrieve notes in a JSON file.
+Saved notes will be retrieved from the database and appended to the side nav for the user to view or delete.
 
 ### Link to deployed application
+
+https://note-taker-micheqn3.herokuapp.com/
 
 ### Installing locally
 
@@ -20,6 +22,11 @@ Saved notes will be retrieved from the file and appended to the side nav for the
 > http://localhost:3000
 
 ### This repository contains: 
+- server.js - This file sets up get, post, and delete requests using Express and updates the database accordingly.
+- public/Assets/js/index.js - This file handles AJAX requests from the client side and renders saved notes to the side nav.
+- db/db.json - This JSON file will keep track of saved notes.
+- public/Assets/css/ styles. css - Style sheet.
+
 
 ### Technologies/Languages used: 
 
@@ -27,8 +34,17 @@ Saved notes will be retrieved from the file and appended to the side nav for the
   - Node.js 
   - Express
   - Nodemon
+  - Uniqid
 
 ### Screenshot of pages
+
+Home page
+:-------------------------:
+![Home page](/Assets/home-page-screenshot.png)
+
+Notes page
+:-------------------------:
+![Notes page](/Assets/notes-page-screenshot.png)
 
 ### License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
