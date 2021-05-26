@@ -1,12 +1,12 @@
 const express = require('express'); // Setting up express server
 const app = express();
 const fs = require('fs'); // File system module
-const db = require('./public/db/db.json') // Importing database
 const uniqid = require('uniqid'); // Generates random ID number for notes
 const port =  process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true })); // Sets up data parsing
 app.use(express.json());
 app.use(express.static('public')) // Serves static files in public folder
+const db = require('./public/db/db.json') // Importing database
 
 app.get('/', (req, res) => { // Route to index.html
     res.sendFile(__dirname + '/public' + '/index.html')
@@ -45,6 +45,7 @@ app.post('/api/notes', (req, res) => { // Handles post request for notes
 
 app.delete('/api/notes/:id', (req, res) => { // Handles deleting notes
     let id = req.params.id;
+
     fs.readFile(__dirname + '/public' + '/db' + '/db.json', 'utf-8' , (error, data) => {
         if(error) {
             console.log("Something went wrong.")
@@ -56,11 +57,11 @@ app.delete('/api/notes/:id', (req, res) => { // Handles deleting notes
                     newArray.push(parsedData[i]);
                 }
             }
-            fs.writeFile(__dirname + '/public' + '/db' + '/db.json', JSON.stringify(newArray), (error, data) => { // Write new array to database
+            fs.writeFile(__dirname + '/public' + '/db' + '/db.json', JSON.stringify(newArray), (error) => { // Write new array to database
                 if(error) {
                     throw error;
                 } else {
-                    console.log("Deleted item.")
+                    console.log("Deleted item.");
                 }
             })
         }
