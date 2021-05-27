@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Note Taker
 
-The application uses an Express.js back-end to store and retrieve notes in a JSON file.
+This application uses an Express.js back-end to store and retrieve notes from a JSON file.
 Saved notes will be retrieved from the database and appended to the side nav for the user to view or delete.
 
 ### Link to deployed application
