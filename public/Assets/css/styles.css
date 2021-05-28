@@ -82,9 +82,9 @@ nav {
   min-height: 70px;
 }
 /***** Media queries ****/
-@media (max-width:320px)  {  /* Smaller phones */
+@media (max-width:375px)  {  /* Smaller phones */
   .note-title {
-    font-size: 1em;
+    font-size: 2em;
   }
   .list-item-title {
     font-size: 9px;
